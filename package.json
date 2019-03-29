@@ -1,0 +1,26 @@
+{
+  "name": "burritoorders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "db:create": "createdb burrito-orders",
+    "db:init": "psql -f schema.sql burrito-orders && psql -f seed.sql burrito-orders",
+    "db:destroy": "dropdb burrito-orders",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
+    "test": "mocha",
+    "test:watch": "mocha -w --reporter nyan"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pg-promise": "^8.6.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  }
+}
